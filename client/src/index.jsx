@@ -12,7 +12,10 @@ import About from './components/pages/About';
 import './assets/scss/app.scss';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
-const store = createStoreWithMiddleware(reducers);
+const store = createStoreWithMiddleware(
+  reducers,
+  window.devToolsExtension && window.devToolsExtension(),
+);
 
 render(
   <Provider store={store}>
